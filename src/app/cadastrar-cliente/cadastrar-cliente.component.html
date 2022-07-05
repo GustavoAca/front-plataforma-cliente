@@ -1,26 +1,4 @@
 <div class="container">
-  <div class="row d-flex justify-content-center align-items-center">
-    <h5>Proprietário existente</h5>
-
-    <div class="col-md-9">
-      <div class="form-group">
-        <label for="proprietario">Proprietario:</label>
-        <select
-          class="form-control"
-          name="proprietario"
-          id="proprietario"
-          [(ngModel)]="idCliente"
-        >
-          <option
-            *ngFor="let nome of listaClientes"
-            value="{{ nome.id_cliente }}"
-          >
-            {{ nome.nome }}
-          </option>
-        </select>
-      </div>
-    </div>
-  </div>
 
   <hr />
   <div class="g-start-2" style="grid-row: 1">

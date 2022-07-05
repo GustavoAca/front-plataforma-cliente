@@ -15,8 +15,8 @@ import { TiposVeiculos } from '../model/TiposVeiculos';
   styleUrls: ['./cadastrar-cliente.component.css']
 })
 export class CadastrarClienteComponent implements OnInit {
-  idCliente: number
   cliente: Cliente = new Cliente()
+  idCliente: number
   listaClientes: Cliente[]
 
   idUsuario = environment.id
@@ -28,6 +28,7 @@ export class CadastrarClienteComponent implements OnInit {
   listaTiposVeiculos: TiposVeiculos[]
   tipoVeiculo: TiposVeiculos
 
+
   constructor(
     private authService: AuthService,
     private veiculoService: VeiculoService,
@@ -36,61 +37,78 @@ export class CadastrarClienteComponent implements OnInit {
     private router: Router
   ) { }
 
-  ngOnInit(){
+  ngOnInit() {
 
-     if (environment.token == '') {
+    if (environment.token == '') {
       // alert('Sua seção expirou, faça o login novamente');
       this.router.navigate(['/entrar']);
     }
 
-    this.trazerTodosClientes()
     this.trazerTodosOsTiposVeiculos()
     this.encontrarTipoVeiculoPorId()
   }
 
-  trazerTodosClientes(){
-    this.clienteService.getAllClientes().subscribe((resp:Cliente[]) => {
-        this.listaClientes = resp
-      })
-  }
 
-  trazerTodosOsTiposVeiculos(){
-    this.tiposVeiculosService.getAllTiposVeiculos().subscribe((resp:TiposVeiculos[]) => {
+  trazerTodosOsTiposVeiculos() {
+    this.tiposVeiculosService.getAllTiposVeiculos().subscribe((resp: TiposVeiculos[]) => {
       this.listaTiposVeiculos = resp
     })
   }
 
-  encontrarTipoVeiculoPorId(){
+  encontrarTipoVeiculoPorId() {
     this.tiposVeiculosService.getTipoVeiculoById(this.idTipoVeiculo).subscribe(
       {
-        next: (resp:TiposVeiculos) => {
+        next: (resp: TiposVeiculos) => {
           this.tipoVeiculo = resp
-          console.table(this.tipoVeiculo)
+
         }
       })
   }
 
+  encontrarClientePorId(id:number) {
+    this.clienteService.getClienteById(id).subscribe(
+      {
+        next: (resp: Cliente) => {
+          this.cliente = resp
+        alert('certo encontrado')
 
+        }
+      })
+  }
 
-  cadastrar(){
-
-
-this.tipoVeiculo.id_tipoVeiculo = this. idTipoVeiculo
-this.veiculo.tiposVeiculos = this.tipoVeiculo
+  cadastrarCliente() {
 
     this.clienteService.postClientes(this.cliente).subscribe({
       next: (resp: Cliente) => {
         this.cliente = resp
-        alert('certo')
+        this.idCliente = this.cliente.id_cliente
+        alert('certo cliente')
+        this.encontrarClientePorId(this.idCliente)
+
 
       }
-      })
-      this.veiculo.cliente = this.cliente
-      this.veiculoService.postVeiculos(this.veiculo).subscribe({
-        next: (resp:Veiculo) => {
-          this.veiculo = resp
-          alert('certo')
-        }
-      })
+    })
+  }
+
+
+  cadastrarVeiculo(cliente:Cliente) {
+
+    this.tipoVeiculo.id_tipoVeiculo = this.idTipoVeiculo
+    this.veiculo.tiposVeiculos = this.tipoVeiculo
+
+    this.veiculo.cliente = this.cliente
+
+    this.veiculoService.postVeiculos(this.veiculo).subscribe({
+      next: (resp: Veiculo) => {
+        this.veiculo = resp
+        console.table(this.veiculo)
+        alert('certo veiculo')
+      }
+    })
+  }
+
+  cadastrar() {
+    this.cadastrarCliente()
+    this.cadastrarVeiculo(this.cliente)
   }
 }
