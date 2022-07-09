@@ -25,6 +25,10 @@ export class ClienteService {
     return this.http.get<Cliente>(`https://apibemprotege.herokuapp.com/clientes/${id}`, this.token)
   }
 
+  getByName(nome: string): Observable<Cliente[]>{
+    return this.http.get<Cliente[]>(`https://apibemprotege.herokuapp.com/clientes/nome/${nome}`, this.token)
+  }
+
   postClientes(cliente: Cliente): Observable<Cliente>{
     return this.http.post<Cliente>('https://apibemprotege.herokuapp.com/clientes',cliente, this.token)
   }

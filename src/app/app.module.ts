@@ -8,11 +8,12 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { AppComponent } from './app.component';
 import { EntrarComponent } from './entrar/entrar.component';
-import { CadastrarComponent } from './cadastrar/cadastrar.component';
+import { CadastrarComponent } from './cadastros/cadastrar/cadastrar.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { InicioComponent } from './inicio/inicio.component';
 import { HeaderComponent } from './header/header.component';
-import { CadastrarClienteComponent } from './cadastrar-cliente/cadastrar-cliente.component';
+import { CadastrarClienteComponent } from './cadastros/cadastrar-cliente/cadastrar-cliente.component';
+import { CadastrarVeiculoComponent } from './cadastros/cadastrar-veiculo/cadastrar-veiculo.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { CadastrarClienteComponent } from './cadastrar-cliente/cadastrar-cliente
     CadastrarComponent,
     InicioComponent,
     HeaderComponent,
-    CadastrarClienteComponent
+    CadastrarClienteComponent,
+    CadastrarVeiculoComponent
   ],
   imports: [
     BrowserModule,

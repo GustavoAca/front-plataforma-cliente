@@ -8,6 +8,7 @@ export class Veiculo {
   public uber: string
   public vencimentoBoleto: string
   public mensalidade: string
+  public linkContrato: string
   public tiposVeiculos: TiposVeiculos
   public cliente: Cliente
 

@@ -1,26 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../service/auth.service';
+import { Veiculo } from '../../model/Veiculo';
+import { TiposVeiculos } from '../../model/TiposVeiculos';
+import { TiposVeiculosService } from '../../service/tipos-veiculos.service';
+import { AuthService } from '../../service/auth.service';
+import { VeiculoService } from '../../service/veiculo.service';
 import { Router } from '@angular/router';
-import { Cliente } from '../model/Cliente';
-import { Veiculo } from '../model/Veiculo';
+import { Cliente } from '../../model/Cliente';
+import { ClienteService } from '../../service/cliente.service';
 import { environment } from 'src/environments/environment.prod';
-import { VeiculoService } from '../service/veiculo.service';
-import { ClienteService } from '../service/cliente.service';
-import { TiposVeiculosService } from '../service/tipos-veiculos.service';
-import { TiposVeiculos } from '../model/TiposVeiculos';
 
 @Component({
-  selector: 'app-cadastrar-cliente',
-  templateUrl: './cadastrar-cliente.component.html',
-  styleUrls: ['./cadastrar-cliente.component.css']
+  selector: 'app-cadastrar-veiculo',
+  templateUrl: './cadastrar-veiculo.component.html',
+  styleUrls: ['./cadastrar-veiculo.component.css']
 })
-export class CadastrarClienteComponent implements OnInit {
-  cliente: Cliente = new Cliente()
-  idCliente: number
-  listaClientes: Cliente[]
-
-  idUsuario = environment.id
-
+export class CadastrarVeiculoComponent implements OnInit {
   veiculo: Veiculo = new Veiculo()
   listaVeiculos: Veiculo[]
 
@@ -28,26 +22,27 @@ export class CadastrarClienteComponent implements OnInit {
   listaTiposVeiculos: TiposVeiculos[]
   tipoVeiculo: TiposVeiculos
 
+  listaClientes: Cliente[]
+  cliente: Cliente = new Cliente()
+  idCliente: number
 
   constructor(
+    private tiposVeiculosService: TiposVeiculosService,
     private authService: AuthService,
     private veiculoService: VeiculoService,
     private clienteService: ClienteService,
-    private tiposVeiculosService: TiposVeiculosService,
     private router: Router
   ) { }
 
   ngOnInit() {
-
     if (environment.token == '') {
       // alert('Sua seção expirou, faça o login novamente');
       this.router.navigate(['/entrar']);
     }
 
+    this.trazerTodosClientes()
     this.trazerTodosOsTiposVeiculos()
-    this.encontrarTipoVeiculoPorId()
   }
-
 
   trazerTodosOsTiposVeiculos() {
     this.tiposVeiculosService.getAllTiposVeiculos().subscribe((resp: TiposVeiculos[]) => {
@@ -65,50 +60,39 @@ export class CadastrarClienteComponent implements OnInit {
       })
   }
 
-  encontrarClientePorId(id:number) {
-    this.clienteService.getClienteById(id).subscribe(
-      {
-        next: (resp: Cliente) => {
-          this.cliente = resp
-        alert('certo encontrado')
-
-        }
-      })
+  trazerTodosClientes() {
+    this.clienteService.getAllClientes().subscribe({
+      next: (resp: Cliente[]) => {
+        this.listaClientes = resp
+      }
+    })
   }
 
-  cadastrarCliente() {
-
-    this.clienteService.postClientes(this.cliente).subscribe({
-      next: (resp: Cliente) => {
-        this.cliente = resp
-        this.idCliente = this.cliente.id_cliente
-        alert('certo cliente')
-        this.encontrarClientePorId(this.idCliente)
-
-
+  encontrarClientePorId(){
+    this.clienteService.getClienteById(this.idCliente).subscribe({
+      next: (resp:Cliente) => {
+        this.cliente  = resp
       }
     })
   }
 
 
-  cadastrarVeiculo(cliente:Cliente) {
-
+  cadastrarVeiculo() {
     this.tipoVeiculo.id_tipoVeiculo = this.idTipoVeiculo
     this.veiculo.tiposVeiculos = this.tipoVeiculo
 
+    this.cliente.id_cliente = this.idCliente
     this.veiculo.cliente = this.cliente
+    console.log('linha 86')
 
     this.veiculoService.postVeiculos(this.veiculo).subscribe({
       next: (resp: Veiculo) => {
         this.veiculo = resp
         console.table(this.veiculo)
         alert('certo veiculo')
+        this.veiculo = new Veiculo()
       }
     })
   }
 
-  cadastrar() {
-    this.cadastrarCliente()
-    this.cadastrarVeiculo(this.cliente)
-  }
 }
