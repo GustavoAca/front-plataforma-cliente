@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { Cliente } from '../model/Cliente';
 import { ClienteService } from '../service/cliente.service';
 import { Veiculo } from '../model/Veiculo';
-import { VeiculoService } from '../service/veiculo.service';
+
 
 @Component({
   selector: 'app-inicio',

@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row pt-3">
+
+    <div class="col-md-7 d-flex justify-content-center align-items-center">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body" *ngFor="let carro of cliente.veiculo">
+          <h5 class="card-title">{{carro.nome}} </h5>
+          <p class="card-text">Placa: {{carro.placa}}</p>
+          <p class="card-text">Uber: {{carro.uber}} </p>
+
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
