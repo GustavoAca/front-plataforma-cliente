@@ -89,7 +89,8 @@ export class CadastrarVeiculoComponent implements OnInit {
       next: (resp: Veiculo) => {
         this.veiculo = resp
         console.table(this.veiculo)
-        alert('certo veiculo')
+        alert('Veiculo cadastrado')
+        this.router.navigate(['/inicio'])
         this.veiculo = new Veiculo()
       }
     })

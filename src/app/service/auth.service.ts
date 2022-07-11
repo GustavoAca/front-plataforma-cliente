@@ -14,8 +14,14 @@ export class AuthService {
     private http: HttpClient
   ) { }
 
-  token = {
+   token = {
     headers: new HttpHeaders().set("Authorization", environment.token)
+  }
+
+  refreshToken(){
+    this.token = {
+      headers: new HttpHeaders().set("Authorization", environment.token)
+    }
   }
 
   cadastrar(usu: Usuario): Observable<Usuario>{
@@ -24,6 +30,10 @@ export class AuthService {
 
   entrar(usuLogin: UsuarioLogin):Observable<UsuarioLogin>{
     return this.http.post<UsuarioLogin>('https://apibemprotege.herokuapp.com/usuarios/logar', usuLogin)
+  }
+
+  encontrarClienteId(id: number): Observable<Usuario>{
+    return this.http.get<Usuario>(`https://apibemprotege.herokuapp.com/usuarios/${id}`, this.token)
   }
 
 

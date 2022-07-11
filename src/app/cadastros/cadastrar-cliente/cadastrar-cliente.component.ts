@@ -20,7 +20,11 @@ export class CadastrarClienteComponent implements OnInit {
   idCliente: number
   listaClientes: Cliente[]
 
+  usuario:Usuario = new Usuario()
+  idUsuario = environment.id
+
   constructor(
+    private authService: AuthService,
     private clienteService: ClienteService,
     private router: Router
   ) { }
@@ -33,8 +37,21 @@ export class CadastrarClienteComponent implements OnInit {
     }
   }
 
+  encontrarCorretorId(id:number){
+    this.authService.encontrarClienteId(id).subscribe({
+      next: (resp:Usuario) => {
+        this.usuario = resp
+      }
+    })
+  }
+
 
   cadastrarCliente() {
+
+    this.encontrarCorretorId(this.idUsuario)
+
+    this.usuario.id = this.idUsuario
+    this.cliente.usuario = this.usuario
 
     this.clienteService.postClientes(this.cliente).subscribe({
       next: (resp: Cliente) => {
