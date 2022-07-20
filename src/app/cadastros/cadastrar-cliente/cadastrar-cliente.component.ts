@@ -38,7 +38,7 @@ export class CadastrarClienteComponent implements OnInit {
   }
 
   encontrarCorretorId(id:number){
-    this.authService.encontrarClienteId(id).subscribe({
+    this.authService.encontrarCorretorId(id).subscribe({
       next: (resp:Usuario) => {
         this.usuario = resp
       }

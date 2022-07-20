@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { Cliente } from '../model/Cliente';
 import { ClienteService } from '../service/cliente.service';
 import { Veiculo } from '../model/Veiculo';
+import { Usuario } from '../model/Usuario';
+import { AuthService } from '../service/auth.service';
 
 
 @Component({
@@ -17,11 +19,14 @@ export class InicioComponent implements OnInit {
   listaClientes: Cliente[]
   nomeCliente: string
 
+  usuario: Usuario = new Usuario()
+  idUsuario = environment.id
+
   veiculo: Veiculo = new Veiculo
 
   constructor(
     private clienteService: ClienteService,
-
+    private authService: AuthService,
     private router: Router
   ) { }
 
@@ -32,6 +37,7 @@ export class InicioComponent implements OnInit {
     }
 
     this.trazerTodosClientes()
+
 
   }
 
@@ -52,4 +58,18 @@ export class InicioComponent implements OnInit {
     })
   }
 
+  trazerCorretorPorId(id: number) {
+    this.authService.encontrarCorretorId(id).subscribe({
+      next: (resp: Usuario) => {
+        this.usuario = resp
+      }
+    })
+  }
+
 }
+
+
+
+
+
+

@@ -34,7 +34,7 @@ export class InfogeraisComponent implements OnInit {
       this.router.navigate(['/entrar']);
     }
     this.idCliente = this.route.snapshot.params['id']
-  
+
     this.findByIdUser()
   }
 
@@ -45,5 +45,6 @@ findByIdUser(){
     }
   })
 }
+
 
 }

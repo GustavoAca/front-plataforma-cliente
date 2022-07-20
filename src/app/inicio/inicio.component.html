@@ -35,12 +35,35 @@
 
             <div>
               <a [routerLink]="['/infogerais',cliente.id_cliente]"  class="btn btn-primary"><i class="fa-solid fa-file-lines"></i></a>
-              <a  class="btn btn-primary ms-1"> <i class="fa-solid fa-pen-to-square pen"></i></a>
+
+              <a class="btn btn-primary ms-1"><i class="fa-solid fa-pen-to-square pen"></i></a>
+              <button type="button" data-bs-toggle="modal" data-bs-target="#excluirModal" class="btn btn-primary ms-1"> <i class="fa-regular fa-trash-can"></i> </button>
             </div>
 
           </div>
 
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="excluirModal" tabindex="-1" aria-labelledby="excluirModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="excluirModalLabel">Excluir</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Deseja realmente excluir?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Excluir</button>
       </div>
     </div>
   </div>

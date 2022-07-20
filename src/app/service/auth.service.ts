@@ -32,7 +32,7 @@ export class AuthService {
     return this.http.post<UsuarioLogin>('https://apibemprotege.herokuapp.com/usuarios/logar', usuLogin)
   }
 
-  encontrarClienteId(id: number): Observable<Usuario>{
+  encontrarCorretorId(id: number): Observable<Usuario>{
     return this.http.get<Usuario>(`https://apibemprotege.herokuapp.com/usuarios/${id}`, this.token)
   }
 
