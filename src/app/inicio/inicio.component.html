@@ -6,9 +6,9 @@
           <div class="col-md-10 input-group mb-3 mt-0 p-0">
             <input type="text" class="form-control" [(ngModel)]="nomeCliente" (keyup)="trazerPorNome()" />
             <div class="input-group-append">
-              <button class="btn btn-secondary">
+              <a class="btn btn-secondary">
                 <i class="fas fa-search"></i>
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -60,14 +60,14 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="excluirModalLabel">Excluir</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <a type="a" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></a>
       </div>
       <div class="modal-body">
         <p>Deseja realmente excluir?</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Excluir</button>
+        <a type="a" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</a>
+        <a type="a" class="btn btn-danger" data-bs-dismiss="modal">Excluir</a>
       </div>
     </div>
   </div>
