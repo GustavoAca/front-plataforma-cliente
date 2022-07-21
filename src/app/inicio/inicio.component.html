@@ -37,7 +37,11 @@
               <a [routerLink]="['/infogerais',cliente.id_cliente]"  class="btn btn-primary"><i class="fa-solid fa-file-lines"></i></a>
 
               <a class="btn btn-primary ms-1"><i class="fa-solid fa-pen-to-square pen"></i></a>
-              <button type="button" data-bs-toggle="modal" data-bs-target="#excluirModal" class="btn btn-primary ms-1"> <i class="fa-regular fa-trash-can"></i> </button>
+
+              <a [routerLink]="['/excluir-cliente',cliente.id_cliente]"  class="btn btn-primary ms-1"><i class="fa-regular fa-trash-can"></i></a>
+
+              <a [routerLink]="['/cadastrar-carro-cliente-cadastrado',cliente.id_cliente]" class="btn btn-primary ms-1" ><i class="fa-solid fa-plus"></i></a>
+
             </div>
 
           </div>

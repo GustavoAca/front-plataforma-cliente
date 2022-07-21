@@ -15,7 +15,8 @@ import { HeaderComponent } from './header/header.component';
 import { CadastrarClienteComponent } from './cadastros/cadastrar-cliente/cadastrar-cliente.component';
 import { CadastrarVeiculoComponent } from './cadastros/cadastrar-veiculo/cadastrar-veiculo.component';
 import { InfogeraisComponent } from './infogerais/infogerais.component';
-import { ClienteComponent } from './editar/cliente/cliente.component';
+import { CadastrarCarroClienteExistenteComponent } from './cadastros/cadastrar-carro-cliente-existente/cadastrar-carro-cliente-existente.component';
+import { EditarClienteComponent } from './editar/editar-cliente/editar-cliente.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { ClienteComponent } from './editar/cliente/cliente.component';
     CadastrarClienteComponent,
     CadastrarVeiculoComponent,
     InfogeraisComponent,
-    ClienteComponent
+    CadastrarCarroClienteExistenteComponent,
+    EditarClienteComponent
   ],
   imports: [
     BrowserModule,

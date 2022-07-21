@@ -1,0 +1,109 @@
+<div class="container">
+  <div class="row d-flex justify-content-center align-items-center">
+    <div class="d-flex justify-content-between align-items-baseline flex-row-reverse">
+      <div class="mt-2">
+        <button class="btn btn-success" (click)="cadastrarVeiculo()">concluir</button>
+      </div>
+      <div>
+        <h5>Cadastrar veiculo</h5>
+      </div>
+    </div>
+
+    <div class="col-md-9">
+      <div class="form-group">
+        <label for="nome">Nome</label>
+        <input
+          [(ngModel)]="veiculo.nome"
+          type="text"
+          class="form-control"
+          name="nome"
+          id="nome"
+          placeholder="Sua nome"
+        />
+
+        <div class="form-group">
+          <label for="usuario">Placa</label>
+          <input
+            [(ngModel)]="veiculo.placa"
+            type="text"
+            class="form-control"
+            name="usuario"
+            id="usuario"
+            placeholder="Seu usuário"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="foto">Link do contrato</label>
+          <input
+            [(ngModel)]="veiculo.linkContrato"
+            type="text"
+            class="form-control"
+            name="foto"
+            id="foto"
+            placeholder="Link do contrato"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="foto">Mensalidade</label>
+          <input
+            [(ngModel)]="veiculo.mensalidade"
+            type="text"
+            class="form-control"
+            name="foto"
+            id="foto"
+            placeholder="Mensalidade"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="tipo">Tipo veiculo</label>
+          <select
+            class="form-control"
+            name="tipo"
+            id="tipo"
+            [(ngModel)]="idTipoVeiculo"
+            (change)="encontrarTipoVeiculoPorId()"
+          >
+            <option
+              *ngFor="let tipo of listaTiposVeiculos"
+              value="{{ tipo.id_tipoVeiculo }}"
+            >
+              {{ tipo.tipoVeiculo }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="uber">Uber</label>
+          <select
+            class="form-control"
+            name="uber"
+            id="uber"
+            [(ngModel)]="veiculo.uber"
+          >
+            <option [ngValue]="true">Sim</option>
+            <option [ngValue]="false">Não</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="tipo">Vencimento</label>
+          <select
+            class="form-control"
+            name="tipo"
+            id="tipo"
+            [(ngModel)]="veiculo.vencimentoBoleto"
+          >
+            <option>Selecione o vencimento</option>
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -7,6 +7,8 @@ import { InicioComponent } from './inicio/inicio.component';
 import { CadastrarClienteComponent } from './cadastros/cadastrar-cliente/cadastrar-cliente.component';
 import { CadastrarVeiculoComponent } from './cadastros/cadastrar-veiculo/cadastrar-veiculo.component';
 import { InfogeraisComponent } from './infogerais/infogerais.component';
+import { ClienteComponent } from './excluir/cliente/cliente.component';
+import { CadastrarCarroClienteExistenteComponent } from './cadastros/cadastrar-carro-cliente-existente/cadastrar-carro-cliente-existente.component';
 
 
 const routes: Routes = [
@@ -20,13 +22,19 @@ const routes: Routes = [
   { path: 'cadastrarcliente', component: CadastrarClienteComponent},
   { path: 'cadastrarveiculo', component: CadastrarVeiculoComponent},
 
-  { path: 'infogerais/:id', component: InfogeraisComponent}
+  { path: 'infogerais/:id', component: InfogeraisComponent},
+
+  { path: 'excluir-cliente/:id', component: ClienteComponent},
+
+  { path: 'cadastrar-carro-cliente-cadastrado/:id', component: CadastrarCarroClienteExistenteComponent},
+  
+
 
 
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+exports: [RouterModule]
 })
 export class AppRoutingModule { }
