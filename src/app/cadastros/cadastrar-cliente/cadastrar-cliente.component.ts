@@ -57,7 +57,7 @@ export class CadastrarClienteComponent implements OnInit {
       next: (resp: Cliente) => {
         this.cliente = resp
         alert('cliente cadastrado')
-        this.router.navigate(["/cadastrarveiculo"])
+        this.router.navigate(["/cadastrar-carro-cliente-cadastrado", this.cliente.id_cliente])
 
       }
     })

@@ -15,6 +15,7 @@ import { AuthService } from '../service/auth.service';
 })
 export class InicioComponent implements OnInit {
 
+
   cliente: Cliente = new Cliente()
   listaClientes: Cliente[]
   nomeCliente: string

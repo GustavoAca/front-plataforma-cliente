@@ -13,10 +13,10 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { InicioComponent } from './inicio/inicio.component';
 import { HeaderComponent } from './header/header.component';
 import { CadastrarClienteComponent } from './cadastros/cadastrar-cliente/cadastrar-cliente.component';
-import { CadastrarVeiculoComponent } from './cadastros/cadastrar-veiculo/cadastrar-veiculo.component';
 import { InfogeraisComponent } from './infogerais/infogerais.component';
 import { CadastrarCarroClienteExistenteComponent } from './cadastros/cadastrar-carro-cliente-existente/cadastrar-carro-cliente-existente.component';
 import { EditarClienteComponent } from './editar/editar-cliente/editar-cliente.component';
+import { EditarVeiculoComponent } from './editar/editar-veiculo/editar-veiculo.component';
 
 
 @NgModule({
@@ -27,10 +27,10 @@ import { EditarClienteComponent } from './editar/editar-cliente/editar-cliente.c
     InicioComponent,
     HeaderComponent,
     CadastrarClienteComponent,
-    CadastrarVeiculoComponent,
     InfogeraisComponent,
     CadastrarCarroClienteExistenteComponent,
-    EditarClienteComponent
+    EditarClienteComponent,
+    EditarVeiculoComponent
   ],
   imports: [
     BrowserModule,

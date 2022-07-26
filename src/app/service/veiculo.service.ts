@@ -23,6 +23,10 @@ export class VeiculoService {
     return this.http.get<Veiculo[]>('https://apibemprotege.herokuapp.com/veiculos', this.token)
   }
 
+  getByIdVeiculos(id: number): Observable<Veiculo>{
+    return this.http.get<Veiculo>(`https://apibemprotege.herokuapp.com/veiculos/${id}`, this.token)
+  }
+
   postVeiculos(veiculo: Veiculo): Observable<Veiculo>{
     return this.http.post<Veiculo>('https://apibemprotege.herokuapp.com/veiculos',veiculo, this.token)
   }

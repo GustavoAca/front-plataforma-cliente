@@ -2,7 +2,7 @@
   <div class="row d-flex justify-content-center align-items-center">
     <div class="d-flex justify-content-between align-items-baseline flex-row-reverse">
       <div class="mt-2">
-        <button class="btn btn-success" (click)="cadastrarVeiculo()">concluir</button>
+        <a class="btn btn-success" (click)="atualizar()">Concluir</a>
       </div>
       <div>
         <h5>Cadastrar veiculo</h5>
@@ -76,24 +76,6 @@
         </div>
 
         <div class="form-group">
-          <label for="cliente">Proprietario</label>
-          <select
-            class="form-control"
-            name="cliente"
-            id="cliente"
-            [(ngModel)]="idCliente"
-            (change)="encontrarClientePorId()"
-          >
-            <option
-              *ngFor="let cliente of listaClientes"
-              value="{{ cliente.id_cliente }}"
-            >
-              {{ cliente.nome }}
-            </option>
-          </select>
-        </div>
-
-        <div class="form-group">
           <label for="uber">Uber</label>
           <select
             class="form-control"
@@ -124,3 +106,5 @@
     </div>
   </div>
 </div>
+
+

@@ -9,6 +9,8 @@
           <p class="card-text">Uber: {{carro.uber}} </p>
 
           <a target="_blank" href="{{carro.linkContrato}}" class="btn btn-primary">Contrato</a>
+          <a [routerLink]="['/editar-veiculo',carro.id_veiculo]" class="btn btn-primary ms-1" ><i class="fa-solid fa-pen-to-square pen"></i></a>
+
         </div>
       </div>
     </div>
