@@ -25,15 +25,15 @@ export class AuthService {
   }
 
   cadastrar(usu: Usuario): Observable<Usuario>{
-    return this.http.post<Usuario>('https://apibemprotege.herokuapp.com/usuarios/cadastrar', usu)
+    return this.http.post<Usuario>('usuarios/cadastrar', usu)
   }
 
   entrar(usuLogin: UsuarioLogin):Observable<UsuarioLogin>{
-    return this.http.post<UsuarioLogin>('https://apibemprotege.herokuapp.com/usuarios/logar', usuLogin)
+    return this.http.post<UsuarioLogin>('usuarios/logar', usuLogin)
   }
 
   encontrarCorretorId(id: number): Observable<Usuario>{
-    return this.http.get<Usuario>(`https://apibemprotege.herokuapp.com/usuarios/${id}`, this.token)
+    return this.http.get<Usuario>(`usuarios/${id}`, this.token)
   }
 
 

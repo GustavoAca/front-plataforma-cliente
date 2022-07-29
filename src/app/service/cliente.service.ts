@@ -18,26 +18,26 @@ export class ClienteService {
   }
 
   getAllClientes(): Observable<Cliente[]>{
-    return this.http.get<Cliente[]>('https://apibemprotege.herokuapp.com/clientes', this.token)
+    return this.http.get<Cliente[]>('clientes', this.token)
   }
 
   getClienteById(id: number): Observable<Cliente>{
-    return this.http.get<Cliente>(`https://apibemprotege.herokuapp.com/clientes/${id}`, this.token)
+    return this.http.get<Cliente>(`clientes/${id}`, this.token)
   }
 
   getByName(nome: string): Observable<Cliente[]>{
-    return this.http.get<Cliente[]>(`https://apibemprotege.herokuapp.com/clientes/nome/${nome}`, this.token)
+    return this.http.get<Cliente[]>(`clientes/nome/${nome}`, this.token)
   }
 
   postClientes(cliente: Cliente): Observable<Cliente>{
-    return this.http.post<Cliente>('https://apibemprotege.herokuapp.com/clientes',cliente, this.token)
+    return this.http.post<Cliente>('clientes',cliente, this.token)
   }
 
   putClientes(cliente: Cliente): Observable<Cliente>{
-    return this.http.put<Cliente>('https://apibemprotege.herokuapp.com/clientes',cliente, this.token)
+    return this.http.put<Cliente>('clientes',cliente, this.token)
   }
 
   deleteCliente(id:number){
-    return this.http.delete(`https://apibemprotege.herokuapp.com/clientes/${id}`, this.token)
+    return this.http.delete(`clientes/${id}`, this.token)
   }
 }

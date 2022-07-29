@@ -1,10 +1,10 @@
 <div class="container mt-5">
   <div class="row">
-    <div class="row d-flex justify-content-center mt-5 mb-5">
-      <div class="col-md-4">
+    <div class="row d-flex justify-content-center  align-items-center mt-5 mb-5">
+      <div class="col-md-4 ">
         <div class="form-group">
           <div class="col-md-10 input-group mb-3 mt-0 p-0">
-            <input type="text" class="form-control" [(ngModel)]="nomeCliente" (keyup)="trazerPorNome()" />
+            <input type="text" class="form-control" [(ngModel)]="nomeCliente" (keyup)="ativarFuncao()" />
             <div class="input-group-append">
               <a class="btn btn-secondary">
                 <i class="fas fa-search"></i>
@@ -16,7 +16,7 @@
     </div>
   </div>
 
-  <div class="row">
+  <div class="row d-flex justify-content-center">
     <div class="col-md-4">
       <div class="card mt-2" *ngFor="let cliente of listaClientes">
         <div class="card-body">

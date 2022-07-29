@@ -7,6 +7,7 @@ import { AuthService } from '../../service/auth.service';
 import { VeiculoService } from '../../service/veiculo.service';
 import { ClienteService } from '../../service/cliente.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { environment } from 'src/environments/environment.prod';
 
 @Component({
   selector: 'app-cadastrar-carro-cliente-existente',
@@ -37,6 +38,10 @@ export class CadastrarCarroClienteExistenteComponent implements OnInit {
   ) { }
 
   ngOnInit(){
+    if (environment.token == '') {
+      // alert('Sua seção expirou, faça o login novamente');
+      this.router.navigate(['/entrar']);
+    }
 
     this.trazerTodosOsTiposVeiculos()
     this.idCliente = this.route.snapshot.params['id']
