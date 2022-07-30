@@ -9,7 +9,7 @@
       </div>
     </div>
 
-    <div class="col-md-9">
+    <div class="col-md-9 mb-3">
       <div class="form-group">
         <label for="nome">Nome</label>
         <input
@@ -102,6 +102,12 @@
             <option value="20">20</option>
           </select>
         </div>
+
+        <div class="form-group">
+          <label for="titulo">Observação</label>
+          <textarea [(ngModel)]="veiculo.observacao" class="form-control" name="texto" id="texto" rows="3"></textarea>
+        </div>
+
       </div>
     </div>
   </div>
