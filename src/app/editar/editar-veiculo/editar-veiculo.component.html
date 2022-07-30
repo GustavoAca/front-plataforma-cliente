@@ -5,7 +5,7 @@
         <a class="btn btn-success" (click)="atualizar()">Concluir</a>
       </div>
       <div>
-        <h5>Cadastrar veiculo</h5>
+        <h5>Atualizar veiculo</h5>
       </div>
     </div>
 
@@ -102,6 +102,12 @@
             <option value="20">20</option>
           </select>
         </div>
+
+        <div class="form-group">
+          <label for="titulo">Observação</label>
+          <textarea [(ngModel)]="veiculo.observacao" class="form-control" name="texto" id="texto" rows="3"></textarea>
+        </div>
+
       </div>
     </div>
   </div>
