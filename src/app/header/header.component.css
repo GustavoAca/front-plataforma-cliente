@@ -1,0 +1,26 @@
+.under-link {
+  margin: 3px;
+  color: #545454;
+  font-size: 14pt;
+  display: inline-block;
+  position: relative;
+}
+
+.under-link::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: #0090cf;
+  transition: width 0.5s ease-out;
+}
+
+.under-link:hover::before {
+  width: 100%;
+}
+
+.under-link:hover {
+  color: #0090cf;
+}

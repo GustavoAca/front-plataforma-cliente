@@ -1,0 +1,84 @@
+<div class="container-fluid">
+  <div class="row">
+
+    <div class="g-start-2 mt-5" style="grid-row: 1">
+      <div class="row d-flex justify-content-center align-items-center ">
+        <div class="col-md-9">
+          <h1 class="text-center">Cadastro</h1>
+
+          <div class="form-group">
+            <label for="nome">Nome</label>
+            <input
+            [(ngModel)] = "usuario.nome"
+              type="text"
+              class="form-control"
+              name="nome"
+              id="nome"
+              placeholder="Sua nome"
+            />
+
+            <div class="form-group">
+              <label for="usuario">Usuario</label>
+              <input
+              [(ngModel)] = "usuario.usuario"
+                type="text"
+                class="form-control"
+                name="usuario"
+                id="usuario"
+                placeholder="Seu usuário"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="foto">Link da Foto</label>
+              <input
+              [(ngModel)] = "usuario.foto"
+                type="text"
+                class="form-control"
+                name="foto"
+                id="foto"
+                placeholder="Link da sua foto"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="senha">Senha</label>
+              <input
+              (input) = "conferirSenha($event)"
+                type="password"
+                class="form-control"
+                name="senha"
+                id="senha"
+                placeholder="Sua senha"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="senha">Confirmar senha</label>
+              <input
+              [(ngModel)] = "usuario.senha"
+                type="password"
+                class="form-control"
+                name="senha"
+                id="confirmSenha"
+                placeholder="Confirme sua senha"
+              />
+            </div>
+
+            <div class="d-flex justify-content-center mt-3">
+              <button
+                type="submit"
+                class="btn btn-danger me-4"
+                routerLink="/entrar"
+              >
+                Cancelar
+              </button>
+              <button (click)="cadastrar()" type="submit" class="btn btn-success">Cadastrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

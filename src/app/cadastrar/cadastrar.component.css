@@ -1,0 +1,18 @@
+#img-bg {
+  background-image: url('https://i.imgur.com/w3d95jN.jpg');
+
+  min-height: 615px;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.form-group {
+  padding-top: 10px;
+}
+
+@media screen and (max-width: 700px) {
+  #img-bg {
+    display: none;
+  }
+}
