@@ -1,0 +1,39 @@
+name: Pull Request
+
+on: [pull_request]
+
+jobs:
+  install:
+    name: Insta
+    runs-on: ubuntu-lastest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Cache node_modules
+        uses: actions/chache@v2
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-${{ hashFIles('**/yarn.lock') }}
+
+      - name: Install dependecies
+        run: npm install
+
+  unusedexports:
+    name: Find unused exports (dead code)
+    needs: install
+    runs-on: ubuntu-lastest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Restore node_modules
+        uses: actions/chache@v2
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-${{ hashFIles('**/yarn.lock') }}
+
+      - name: Run java-prune
+        run: npm install ts-prune --save
+
+
