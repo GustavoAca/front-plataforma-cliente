@@ -2,13 +2,15 @@
   <div class="row pt-3">
 
     <div class="col-md-7 d-flex justify-content-center align-items-center">
-      <div class="card" style="width: 18rem;">
-        <div class="card-body" *ngFor="let carro of cliente.veiculo">
+      <div class="card me-3" style="width: 18rem;" *ngFor="let carro of cliente.veiculo">
+        <div class="card-body" >
           <h5 class="card-title">{{carro.nome}} </h5>
           <p class="card-text">Placa: {{carro.placa}}</p>
           <p class="card-text">Uber: {{carro.uber}} </p>
 
           <a target="_blank" href="{{carro.linkContrato}}" class="btn btn-primary">Contrato</a>
+          <a [routerLink]="['/editar-veiculo',carro.id_veiculo]" class="btn btn-primary ms-1" ><i class="fa-solid fa-pen-to-square pen"></i></a>
+
         </div>
       </div>
     </div>

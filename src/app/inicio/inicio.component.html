@@ -1,14 +1,14 @@
 <div class="container mt-5">
   <div class="row">
-    <div class="row d-flex justify-content-center mt-5 mb-5">
-      <div class="col-md-4">
+    <div class="row d-flex justify-content-center  align-items-center mt-5 mb-5">
+      <div class="col-md-4 ">
         <div class="form-group">
           <div class="col-md-10 input-group mb-3 mt-0 p-0">
-            <input type="text" class="form-control" [(ngModel)]="nomeCliente" (keyup)="trazerPorNome()" />
+            <input type="text" class="form-control" [(ngModel)]="nomeCliente" (keyup)="ativarFuncao()" />
             <div class="input-group-append">
-              <button class="btn btn-secondary">
+              <a class="btn btn-secondary">
                 <i class="fas fa-search"></i>
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -16,7 +16,7 @@
     </div>
   </div>
 
-  <div class="row">
+  <div class="row d-flex justify-content-center">
     <div class="col-md-4">
       <div class="card mt-2" *ngFor="let cliente of listaClientes">
         <div class="card-body">
@@ -25,7 +25,7 @@
 
             <div>
               <a target="_blank"
-                href="https://web.whatsapp.com/send?phone=55{{
+                href="https://api.whatsapp.com/send?phone=55{{
                   cliente.contato
                 }}"
                 class="card-text"
@@ -36,8 +36,12 @@
             <div>
               <a [routerLink]="['/infogerais',cliente.id_cliente]"  class="btn btn-primary"><i class="fa-solid fa-file-lines"></i></a>
 
-              <a class="btn btn-primary ms-1"><i class="fa-solid fa-pen-to-square pen"></i></a>
-              <button type="button" data-bs-toggle="modal" data-bs-target="#excluirModal" class="btn btn-primary ms-1"> <i class="fa-regular fa-trash-can"></i> </button>
+              <a [routerLink]="['/editar-cliente',cliente.id_cliente]" class="btn btn-primary ms-1"><i class="fa-solid fa-pen-to-square pen"></i></a>
+
+              <a [routerLink]="['/excluir-cliente',cliente.id_cliente]"  class="btn btn-primary ms-1"><i class="fa-regular fa-trash-can"></i></a>
+
+              <a [routerLink]="['/cadastrar-carro-cliente-cadastrado',cliente.id_cliente]" class="btn btn-primary ms-1" ><i class="fa-solid fa-plus"></i></a>
+
             </div>
 
           </div>
@@ -50,21 +54,4 @@
 
 
 
-<!-- Modal -->
-<div class="modal fade" id="excluirModal" tabindex="-1" aria-labelledby="excluirModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="excluirModalLabel">Excluir</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <p>Deseja realmente excluir?</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Excluir</button>
-      </div>
-    </div>
-  </div>
-</div>
+

@@ -17,11 +17,11 @@ export class TiposVeiculosService {
     headers: new HttpHeaders().set("Authorization", environment.token)
   }
   getAllTiposVeiculos(): Observable<TiposVeiculos[]> {
-    return this.http.get<TiposVeiculos[]>('https://apibemprotege.herokuapp.com/tiposVeiculos', this.token)
+    return this.http.get<TiposVeiculos[]>('tiposVeiculos', this.token)
 
   }
 
   getTipoVeiculoById(id: number): Observable<TiposVeiculos>{
-    return this.http.get<TiposVeiculos>(`https://apibemprotege.herokuapp.com/tiposVeiculos/${id}`, this.token)
+    return this.http.get<TiposVeiculos>(`tiposVeiculos/${id}`, this.token)
   }
 }

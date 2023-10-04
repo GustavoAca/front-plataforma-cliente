@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Veiculo } from '../model/Veiculo';
-import { VeiculoService } from '../service/veiculo.service';
 import { Cliente } from '../model/Cliente';
 import { environment } from 'src/environments/environment.prod';
 import { ActivatedRoute, Router } from '@angular/router';

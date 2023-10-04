@@ -1,1 +1,30 @@
-<p>cliente works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <H6>Deseja realmente excluir?</H6>
+    </div>
+
+    <div class="row d-flex justify-content-center mt-3">
+      <div class="col-md-4">
+        <div class="card text-center">
+          <div class="card-body">
+            <h5 class="card-title m-0">{{cliente.nome}}</h5>
+              <small class="tema-muted">{{cliente.contato}}</small>
+              <p >Numero de carros vinculados: {{numCarros}}</p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-5">
+      <div class="col-md-12 d-flex justify-content-center">
+        <button routerLink="/inicio" class="btn btn-danger me-3" >Não quero</button>
+        <a class="btn btn-success" (click)="apagar()">Sim</a>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+

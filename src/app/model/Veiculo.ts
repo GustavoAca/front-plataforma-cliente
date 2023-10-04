@@ -9,6 +9,8 @@ export class Veiculo {
   public vencimentoBoleto: string
   public mensalidade: string
   public linkContrato: string
+  public observacao: string
+  public inadiplente : string
   public tiposVeiculos: TiposVeiculos
   public cliente: Cliente
 

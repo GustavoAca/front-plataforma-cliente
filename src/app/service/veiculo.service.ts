@@ -20,19 +20,23 @@ export class VeiculoService {
   }
 
   getAllVeiculos(): Observable<Veiculo[]>{
-    return this.http.get<Veiculo[]>('https://apibemprotege.herokuapp.com/veiculos', this.token)
+    return this.http.get<Veiculo[]>('veiculos', this.token)
+  }
+
+  getByIdVeiculos(id: number): Observable<Veiculo>{
+    return this.http.get<Veiculo>(`veiculos/${id}`, this.token)
   }
 
   postVeiculos(veiculo: Veiculo): Observable<Veiculo>{
-    return this.http.post<Veiculo>('https://apibemprotege.herokuapp.com/veiculos',veiculo, this.token)
+    return this.http.post<Veiculo>('veiculos',veiculo, this.token)
   }
 
   putVeiculos(veiculo: Veiculo): Observable<Veiculo>{
-    return this.http.put<Veiculo>('https://apibemprotege.herokuapp.com/veiculos',veiculo, this.token)
+    return this.http.put<Veiculo>('veiculos',veiculo, this.token)
   }
 
   deleteVeiculo(id:number){
-    return this.http.delete(`https://apibemprotege.herokuapp.com/veiculos/${id}`, this.token)
+    return this.http.delete(`veiculos/${id}`, this.token)
   }
 
 
