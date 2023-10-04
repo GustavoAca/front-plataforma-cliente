@@ -4,7 +4,7 @@ on: [pull_request]
 
 jobs:
   install:
-    name: Insta
+    name: Install
     runs-on: ubuntu-lastest
     steps:
       - name: Checkout
@@ -14,7 +14,7 @@ jobs:
         uses: actions/chache@v2
         with:
           path: node_modules
-          key: ${{ runner.os }}-${{ hashFIles('**/yarn.lock') }}
+          key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
 
       - name: Install dependecies
         run: npm install
