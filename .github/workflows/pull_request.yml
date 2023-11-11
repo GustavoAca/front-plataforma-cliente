@@ -1,39 +1,29 @@
-name: Pull Request
+name: Compilação e Verificação do Angular
 
-on: [pull_request]
+on:
+  push:
+    branches:
+      - main
+      - 'G*'
 
 jobs:
-  install:
-    name: Install
-    runs-on: ubuntu-lastest
+  build:
+    runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+      - name: Verificar código
+        uses: actions/checkout@v2
 
-      - name: Cache node_modules
-        uses: actions/cache@v2
+      - name: Configurar o Node.js
+        uses: actions/setup-node@v2
         with:
-          path: node_modules
-          key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+          node-version: 14
 
-      - name: Install dependecies
+      - name: Instalar dependências
         run: npm install
 
-  unusedexports:
-    name: Find unused exports (dead code)
-    needs: install
-    runs-on: ubuntu-lastest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+      - name: Executar Verificação Angular
+        run: ng lint
 
-      - name: Restore node_modules
-        uses: actions/chache@v2
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-${{ hashFIles('**/yarn.lock') }}
-
-      - name: Run java-prune
-        run: npm install ts-prune --save
-
-
+      - name: Verificar código não utilizado
+        run: tslint --project tsconfig.json --format stylish --force
