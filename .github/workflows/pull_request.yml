@@ -3,7 +3,7 @@ name: Compilação e Verificação do Angular
 on:
   push:
     branches:
-      - main
+      - main-dev
       - 'G*'
 
 jobs:
@@ -17,9 +17,12 @@ jobs:
       - name: Configurar o Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: 14
+          node-version: 18
 
-      - name: Instalar dependências
+      - name: Instalar Angular CLI
+        run: npm install -g @angular/cli
+
+      - name: Instalar dependências do projeto
         run: npm install
 
       - name: Executar Verificação Angular
