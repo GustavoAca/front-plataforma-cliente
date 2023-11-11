@@ -19,7 +19,10 @@ jobs:
         with:
           node-version: 14
 
-      - name: Instalar dependências
+      - name: Instalar Angular CLI
+        run: npm install -g @angular/cli
+
+      - name: Instalar dependências do projeto
         run: npm install
 
       - name: Executar Verificação Angular
