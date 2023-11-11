@@ -3,13 +3,13 @@ name: Compilação e Verificação do Angular
 on:
   push:
     branches:
-      - main
+      - main-dev
       - 'G*'
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Verificar código
         uses: actions/checkout@v2
